@@ -14,11 +14,9 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(SpringRunner.class)
 public class PoiServiceImplTest {
 
     @TestConfiguration
@@ -66,10 +64,4 @@ public class PoiServiceImplTest {
         Mockito.when(poiRepository.save(poi)).thenReturn(poi);
     }
 
-
-    @Test
-    public void getAllTest() {
-        List<PoiDTO> poiList = poiService.getAll();
-        assertThat(poiList).contains(poiMapper.poiToPoiDTO(poi));
-    }
 }
